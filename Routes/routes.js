@@ -6,6 +6,7 @@ const registerController = require('../Controller/registerController')
 const reviewController=require('../Controller/reviewController')
 const adminController=require('../Controller/adminController')
 const multerConfig = require('../MiddleWare/multer')
+const messageController=require('../Controller/messageController')
 // signUp
 router.post('/signUp',multerConfig.single("profileImage"),userController.register)
 // Login
@@ -61,4 +62,13 @@ router.get('/getAllWorkersAdmin',adminController.getAllWorkers)
 router.put('/updateStatus/:id',adminController.updateStatus)
 // get all Counts
 router.get('/getAllCount',adminController.getAllCounts)
+
+// Help/Chat
+
+// delete room
+router.delete('/deleteRoom/:id',messageController.deleteRoom)
+// clear chat
+router.delete('/clearChat/:roomId',messageController.clearChat)
+// delete Message
+router.delete('/deleteMessage/:id',messageController.deleteMessage)
 module.exports=router

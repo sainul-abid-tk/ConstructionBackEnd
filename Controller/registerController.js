@@ -143,7 +143,8 @@ exports.updateWorker=async(req,res)=>{
         state,
         city,
         place,
-        workImages:workUpdatedImages
+        workImages:workUpdatedImages,
+        status:"pending"
     },{new:true})
     await updatedWorker.save()
     res.status(200).json(updatedWorker)
