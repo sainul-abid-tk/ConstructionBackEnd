@@ -15,7 +15,8 @@ cPServer.use('/uploads',express.static('./uploads'))
 const PORT=3000 || process.env.PORT
 const io=new Server(chatServer,{
     cors:{
-        origin:["https://connectie.vercel.app"],
+        // origin:["https://connectie.vercel.app"],
+        origin:["http://localhost:5173"],
         methods:['GET','POST']
     }
 })

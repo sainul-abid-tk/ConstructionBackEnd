@@ -92,7 +92,6 @@ exports.updateUserProfile=async(req,res)=>{
     const {username,password,email,profileImage}=req.body
     const profile=req.file?req.file.filename:profileImage
     const encryptPassword=encrypt(password,process.env.N_CRYPT_SECRET_KEY)
-    console.log(req.body);
     try{
         const validateEmail = (email) => {
             return email.match(
@@ -108,7 +107,6 @@ exports.updateUserProfile=async(req,res)=>{
           }else{
             res.status(406).json("This Email is not valid")
           }
-        
     }catch(err){
         res.status(401).json(err)
     }

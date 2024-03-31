@@ -17,6 +17,7 @@ exports.addWorker = async (req, res) => {
     city,
     place,
   } = req.body;
+  const categoriesUpdate=categories.toString().split(',')
   const userId = req.payload;
   const registerImg=req.files.registerImage[0].filename
   const {  workImages } = req.files;
@@ -32,7 +33,7 @@ exports.addWorker = async (req, res) => {
         name,
         phoneNumber,
         whatsappNumber,
-        categories,
+        categories:categoriesUpdate,
         experience,
         workingDays,
         availableTime,
@@ -126,6 +127,7 @@ exports.updateWorker=async(req,res)=>{
     registerImage,
     workImages
   } = req.body;
+  const categoriesUpdate=categories.toString().split(',')
   const registerUpdatedImage=req.files?.registerImage?req.files.registerImage[0].filename:registerImage
   const workUpdatedImages=req.files?.workImages?req.files.workImages:JSON.parse(workImages)
   try{
@@ -134,7 +136,7 @@ exports.updateWorker=async(req,res)=>{
         name,
         phoneNumber,
         whatsappNumber,
-        categories,
+        categories:categoriesUpdate,
         experience,
         workingDays,
         availableTime,

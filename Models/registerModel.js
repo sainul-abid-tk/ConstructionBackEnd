@@ -18,10 +18,10 @@ const workersSchema=new mongoos.Schema({
         type:Number,
         required:true,
     },
-    categories:{
-        type:Array,
-        required:true,
-    },
+    categories: {
+        type: [String],
+        required: true
+      },
     experience:{
         type:Number,
         required:true
